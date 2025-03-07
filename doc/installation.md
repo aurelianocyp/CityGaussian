@@ -35,6 +35,14 @@ pip install -r requirements.txt
 
 ### E. Install additional package for CityGaussian
 
+先把两个git注释掉
+
+然后安装（diff-gaussian-rasterization也需要即便前面安装过）
+
+sudo apt install libglm-dev
+
+pip install ninja
+
 ```bash
 pip install -r requirements/CityGS.txt
 ```
