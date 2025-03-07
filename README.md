@@ -92,34 +92,7 @@ Note for street view, the F1-Score is lower than that reported in paper, since w
 <br />
 This work is under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
-## 🤗 Citation
-If you find this repository useful, please use the following BibTeX entry for citation.
-```latex
-@misc{liu2024citygaussianv2efficientgeometricallyaccurate,
-      title={CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes}, 
-      author={Yang Liu and Chuanchen Luo and Zhongkai Mao and Junran Peng and Zhaoxiang Zhang},
-      year={2024},
-      eprint={2411.00771},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2411.00771}, 
-}
-```
 
-```latex
-@inproceedings{liu2025citygaussian,
-  title={Citygaussian: Real-time high-quality large-scale scene rendering with gaussians},
-  author={Liu, Yang and Luo, Chuanchen and Fan, Lue and Wang, Naiyan and Peng, Junran and Zhang, Zhaoxiang},
-  booktitle={European Conference on Computer Vision},
-  pages={265--282},
-  year={2025},
-  organization={Springer}
-}
-```
-
-## 👏 Acknowledgements
-
-This repo benefits from [3DGS](https://github.com/graphdeco-inria/gaussian-splatting), [2DGS](), [TrimGS](https://github.com/YuxueYang1204/TrimGS), [LightGaussian](https://github.com/VITA-Group/LightGaussian), [Gaussian Lightning](https://github.com/yzslab/gaussian-splatting-lightning). Thanks for their great work!
 
 ## ❓ FAQ
 - _Out of memory occurs in training._ To finish training with limited VRAM, downsampling images or adjusting max_cache_num (we used a rather large 1024) in train_large.py can be a useful practice. Besides, you can increase `prune_ratio` in parallel tuning to further reduce memory cost.
@@ -127,3 +100,7 @@ This repo benefits from [3DGS](https://github.com/graphdeco-inria/gaussian-splat
 - _Generation of COLMAP results._ We use the ground-truth poses offered by datasets and separately match the train and test sets. And this will be faster and more robust than match from scratch. But indeed it still costs a lot of time.
 
 - _Most blocks are not trained._ The main reason here is the data assigned to most blocks are too few (<50), and to prevent overfitting these blocks won't get trained. This can be attributed to unreasonable aabb setting, please try to adjust it and see if things work.
+
+## NOTE
+
+viewer：下载一个训练好的checkpoints放入checkpoints文件夹就行，然后在/home/caoyuanping/workspace/CityGaussian/internal/entrypoints/viewer.py中的model_paths设置为 \['/home/caoyuanping/workspace/CityGaussian'\]运行即可
