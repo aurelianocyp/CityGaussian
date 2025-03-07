@@ -26,6 +26,9 @@ conda activate gspl
 
 ### D. Install requirements
 
+
+先把requirements/common.txt里面的两个git注释掉
+
 ```bash
 pip install -r requirements.txt
 ```
